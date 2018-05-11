@@ -1,0 +1,38 @@
+{
+  "name": "bitbank-locust",
+  "version": "1.0.0",
+  "description": "I'm locust on the bitbank api",
+  "main": "index.js",
+  "scripts": {
+    "start": "lsc --map none bin/start.ls",
+    "lint": "find . -name '*.ls' | xargs --max-args=10 ls-lint",
+    "watch": "lsc bin/watch.ls",
+    "test": "mocha test/**/*.ls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miyabisun/bitbank-locust.git"
+  },
+  "keywords": ["bitbank"],
+  "author": "miyabi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/miyabisun/bitbank-locust/issues"
+  },
+  "homepage": "https://github.com/miyabisun/bitbank-locust#readme",
+  "dependencies": {
+    "luxon": "^1.2.0",
+    "node-bitbankcc": "^1.0.1",
+    "prelude-ls": "^1.1.2",
+    "pubnub": "^4.20.3",
+    "ramda": "^0.25.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "livescript": "github:gkz/LiveScript",
+    "ls-lint": "github:miyabisun/ls-lint",
+    "mocha": "^5.1.1",
+    "optionator": "^0.8.2",
+    "source-map": "^0.7.2"
+  }
+}
