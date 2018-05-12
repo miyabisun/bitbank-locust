@@ -3,6 +3,13 @@ require! {
   child_process: {spawn}
   \prelude-ls : P
 }
+rdirs = (dir, results = []) ->
+  results.push dir
+  cdirs = fs.readdir-sync "#__dirname/../#dir"
+  |> P.reject (is /^\./)
+  |> P.filter ("#__dirname/../#dir/" +) >> fs.stat-sync >> (.is-directory!)
+  |> P.each (-> "#dir/#it") >> rdirs _, results
+  return results
 output = (command) -> new Promise (resolve) ->
   console.info "> #{command}"
   command.split " " |> ->
@@ -14,7 +21,8 @@ lint = (...files) ->> await output "ls-lint #{files.join ' '}"
 test = (file) ->> await output "mocha --colors #{file}"
 hr = -> console.info "---------- ---------- ----------"
 
-[\classes, \functions, \modules, ""]
+<[functions modules]>
+|> P.map rdirs |> P.flatten |> (++ [""])
 |> P.each (dir) ->
   tasks = new Set!
   ["#{dir or \.}", "test/#{dir}"].for-each fs.watch _, (type, file) ->>
