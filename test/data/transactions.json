@@ -1,0 +1,18 @@
+{
+  "transactions": [
+    {
+      "transaction_id": 10464055,
+      "side": "sell",
+      "price": "938055",
+      "amount": "0.0040",
+      "executed_at": 1526214315419
+    },
+    {
+      "transaction_id": 10464054,
+      "side": "sell",
+      "price": "938065",
+      "amount": "0.0160",
+      "executed_at": 1526214315381
+    }
+  ]
+}
