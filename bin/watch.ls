@@ -21,7 +21,7 @@ lint = (...files) ->> await output "ls-lint #{files.join ' '}"
 test = (file) ->> await output "mocha --colors #{file}"
 hr = -> console.info "---------- ---------- ----------"
 
-<[functions modules]>
+<[classes functions modules]>
 |> P.map rdirs |> P.flatten |> (++ [""])
 |> P.each (dir) ->
   tasks = new Set!
