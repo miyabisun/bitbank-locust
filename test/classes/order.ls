@@ -32,7 +32,7 @@ describe file, ->
   describe \methods, ->
     describe "update is successful", ->
       i = Klass.from data
-      i.update ({} <<< data <<< {status: \CANCELED_UNFILLED})
+      i.update {} <<< data <<< status: \CANCELED_UNFILLED
       [
         * \isTerminated, yes
         * \isUnterminated, no
