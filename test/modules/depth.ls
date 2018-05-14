@@ -1,13 +1,14 @@
 require! {
   chai: {expect}
   \../../modules/depth.ls : main
+  \../../classes/depth.ls : Depth
 }
 
 file = "test#{__filename - /^.*test/}"
 describe file, ->
   s = depth: null, pair: \xrp_jpy
   before ->
-    s.subscriber = main s.pair
+    s.subscriber = main s.pair, s
   after ->
     s.subscriber.stop!
   describe \type, ->
@@ -16,6 +17,14 @@ describe file, ->
     specify "result is object", ->
       expect s.subscriber .to.be.a \object
   describe "successful", ->
+    specify "state update", ->>
+      @timeout 15000
+      new Promise (resolve) ->
+        do fn = ->
+          | s.depth =>
+            expect s.depth .to.be.an.instanceof Depth
+            resolve s.depth
+          | _ => set-timeout fn, 200
     specify \on, ->>
       new Promise (resolve) ->
         fn = ->
