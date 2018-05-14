@@ -19,9 +19,16 @@ describe file, ->
       expect i.items .to.be.an \array .that.length-of 2
       i.items.for-each expect >> (.to.be.an.instanceof Transaction)
   describe \methods, ->
-    describe "merge successful", ->
+    describe "add successful", ->
       i = Klass.from data
-      i.merge data
+      i.add data
       specify "items key is array of Transaction", ->
         expect i.items .to.be.an \array .that.length-of 4
+        i.items.for-each expect >> (.to.be.an.instanceof Transaction)
+    describe "leave successful", ->
+      i = Klass.from data
+      [1 to 10].for-each -> i.add data
+      i.leave 5
+      specify "items key is array of Transaction", ->
+        expect i.items .to.be.an \array .that.length-of 5
         i.items.for-each expect >> (.to.be.an.instanceof Transaction)
