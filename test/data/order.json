@@ -1,0 +1,13 @@
+{
+  "order_id": 38502984,
+  "pair": "xrp_jpy",
+  "side": "buy",
+  "type": "limit",
+  "start_amount": "1.000000",
+  "remaining_amount": "1.000000",
+  "executed_amount": "0.000000",
+  "price": "10.0000",
+  "average_price": "0.0000",
+  "ordered_at": 1526254270517,
+  "status": "UNFILLED"
+}
