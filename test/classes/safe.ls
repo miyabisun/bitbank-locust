@@ -21,3 +21,13 @@ describe file, ->
     ].for-each ([name, val]) ->
       specify "#name key is #val", ->
         expect i.(name) .to.equal val
+  describe \methods, ->
+    describe "update successful", ->
+      i = Klass.from data
+      i.update {} <<< data <<< xrp: \200.0000, jpy: \800.0000
+      [
+        * \money, 800
+        * \amount, 200
+      ].for-each ([name, val]) ->
+        specify "#name key is #val", ->
+          expect i.(name) .to.equal val
