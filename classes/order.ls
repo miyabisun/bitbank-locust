@@ -18,4 +18,3 @@ module.exports = class Order
   is-terminated:~ -> not @is-unterminated
   is-unterminated:~ -> @entity.status in <[UNFILLED PARTIALLY_FILLED]>
   is-canceled:~ -> @entity.status in <[CANCELED_UNFILLED CANCELED_PARTIALLY_FILLED]>
-  update: -> @entity = it

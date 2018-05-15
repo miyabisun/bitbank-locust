@@ -29,14 +29,3 @@ describe file, ->
     ].for-each ([name, val]) ->
       specify "#name key is #val", ->
         expect i.(name) .to.equal val
-  describe \methods, ->
-    describe "update is successful", ->
-      i = Klass.from data
-      i.update {} <<< data <<< status: \CANCELED_UNFILLED
-      [
-        * \isTerminated, yes
-        * \isUnterminated, no
-        * \isCanceled, yes
-      ].for-each ([name, val]) ->
-        specify "#name key is #val", ->
-          expect i.(name) .to.equal val
