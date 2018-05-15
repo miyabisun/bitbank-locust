@@ -17,7 +17,8 @@ describe file, ->
     specify "result is object", ->
       expect s.subscriber .to.be.a \object
   describe "successful", ->
-    specify "state update", ->>
+    # モジュールの動作を変えた時だけ検証する
+    specify.skip "state update", ->>
       @timeout 15000
       new Promise (resolve) ->
         do fn = ->
@@ -25,7 +26,7 @@ describe file, ->
             expect s.depth .to.be.an.instanceof Depth
             resolve s.depth
           | _ => set-timeout fn, 200
-    specify \on, ->>
+    specify.skip \on, ->>
       new Promise (resolve) ->
         fn = ->
           expect it .to.be.a \object
