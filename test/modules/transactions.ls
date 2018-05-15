@@ -17,9 +17,9 @@ describe file, ->
     specify "result is object", ->
       expect s.subscriber .to.be.a \object
   describe "successful", ->
+    @timeout 60_000ms
     # モジュールの動作を変えた時だけ検証する
     specify.skip "state update", ->>
-      @timeout 15000
       new Promise (resolve) ->
         do fn = ->
           | s.transactions =>
@@ -27,7 +27,6 @@ describe file, ->
             resolve s.transactions
           | _ => set-timeout fn, 200
     specify.skip \on, ->>
-      @timeout 15_000ms
       new Promise (resolve) ->
         fn = ->
           expect it .to.be.a \object
