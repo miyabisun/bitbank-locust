@@ -24,6 +24,7 @@
   "homepage": "https://github.com/miyabisun/bitbank-locust#readme",
   "dependencies": {
     "luxon": "^1.2.0",
+    "mobx": "^4.2.1",
     "node-bitbankcc": "^1.0.1",
     "prelude-ls": "^1.1.2",
     "pubnub": "^4.20.3",
