@@ -26,9 +26,3 @@ describe file, ->
         expect i.(key) .to.be.a \function
       specify "#key(1) is Offer instance", ->
         i.(key) 1 |> expect >> (.to.be.an.instanceof Offer)
-    describe "update successful", ->
-      instance = Klass.from data
-      instance.update {} <<< data <<< asks: [], bids: []
-      <[asks bids]>.for-each (name) ->
-        specify "#name is empty array", ->
-          expect instance.(name) .to.be.an \array .that.be.empty
