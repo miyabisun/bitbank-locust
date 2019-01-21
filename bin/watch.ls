@@ -17,7 +17,6 @@ output = (command) -> new Promise (resolve) ->
       ..stdout.pipe process.stdout
       ..stderr.pipe process.stderr
       ..on \close -> resolve yes
-lint = (...files) ->> await output "ls-lint #{files.join ' '}"
 test = (file) ->> await output "mocha --colors #{file}"
 hr = -> console.info "---------- ---------- ----------"
 
@@ -32,10 +31,8 @@ hr = -> console.info "---------- ---------- ----------"
     tasks.add file
     try
       if dir
-        await lint "#{dir}/#{file}", "test/#{dir}/#{file}"
         await test "test/#{dir}/#{file}"
       else
-        await lint "#{file}", "test/#{file}"
         await test "test/#{file}"
       hr!
     tasks.delete file
